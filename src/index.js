@@ -121,7 +121,7 @@ export default {
             .filter(nameValueTuple => nameValueTuple[1] !== void 0)
             .reduce((result, [name, value]) => {
                 result[name] = value;
-            
+
                 return result;
             }, {});
     },
@@ -166,6 +166,8 @@ export default {
     // Required - must be implemented
     // Browser control
     async openBrowser (id, pageUrl, browserName) {
+        console.log('Daniel Han >>>>>>>>> openBrowser', id, pageUrl, browserName);
+        console.log('');
         var capabilities = { ...this._generateBasicCapabilities(browserName), ...this._getAdditionalCapabilities() };
         var connector    = await this._getConnector();
 
@@ -192,12 +194,16 @@ export default {
     },
 
     async closeBrowser (id) {
+        console.log('Daniel Han >>>>>>>>> closeBrowser', id);
+        console.log('');
         await this.backend.closeBrowser(id);
     },
 
     // Optional - implement methods you need, remove other methods
     // Initialization
     async init () {
+        console.log('Daniel Han >>>>>>>>> init');
+        console.log('');
         var reportWarning = (...args) => this.reportWarning(...args);
 
         this.backend = isAutomateEnabled() ? new AutomateBackend(reportWarning) : new JSTestingBackend(reportWarning);
@@ -208,6 +214,8 @@ export default {
     },
 
     async dispose () {
+        console.log('Daniel Han >>>>>>>>> dispose');
+        console.log('');
         await this._disposeConnector();
         await this._disposeBrowserProxy();
     },
@@ -215,10 +223,14 @@ export default {
 
     // Browser names handling
     async getBrowserList () {
+        console.log('Daniel Han >>>>>>>>> getBrowserList');
+        console.log('');
         return this.browserNames;
     },
 
     async isValidBrowserName (browserName) {
+        console.log('Daniel Han >>>>>>>>> isValidBrowserName', browserName);
+        console.log('');
         return parseCapabilities(browserName).length === 1 && !!this._filterPlatformInfo(this._createQuery(browserName)).length;
     },
 

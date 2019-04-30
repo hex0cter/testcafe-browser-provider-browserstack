@@ -6,7 +6,7 @@
     "no-array-constructor": "error",
     "no-caller": "error",
     "no-catch-shadow": "error",
-    "no-console": "error",
+    "no-console": "off",
     "no-eval": "error",
     "no-extend-native": "error",
     "no-extra-bind": "error",
