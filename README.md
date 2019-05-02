@@ -1,6 +1,6 @@
 # Background
 
-This repo is used for debugging purpose only.
+This repo is used for the purpose of debugging testcafe [issue 3764](https://github.com/DevExpress/testcafe/issues/3764) only.
 
 When running a test in browserstack, there is a chance the test will be put into a queue due to limited parallel tests. When this happens, it is not possible to close the browser properly. It seems the `closeBrowser` function will never be called.
 
